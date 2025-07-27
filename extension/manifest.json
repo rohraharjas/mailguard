@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Email Detector",
+  "version": "1.0",
+  "description": "Detects phishing emails using an AI classifier.",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js", "config.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Phishing Detector"
+  },
+  "web_accessible_resources": []
+}
